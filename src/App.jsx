@@ -3,6 +3,7 @@ import {
   Redirect,
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom';
 
 import styles from './App.css';
@@ -21,7 +22,16 @@ function RGB() {
 }
 
 function ScreenColor() {
-  return <div>{/* Create Route Inside Switch */}</div>;
+  return (
+    <div>
+      {
+        /* Create Route Inside Switch */
+        <Switch>
+          <Route path="/rgb/:r/:g/:b"></Route>
+        </Switch>
+      }
+    </div>
+  );
 }
 
 export default function App() {

@@ -4,21 +4,25 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  useParams,
 } from 'react-router-dom';
 
 import styles from './App.css';
 
 function RGB() {
   // 🚨 Get values for r, g, and b from params
+  const { r, g, b } = useParams();
+  const params = useParams();
+  console.log(params);
   // 🚨 Uncomment next lines after importing
-  // return (
-  // <div
-  //   className={styles.fill}
-  //   style={{ background: `rgb(${r}, ${g}, ${b})` }}
-  // >
-  //   <p>{`rgb(${r},${g},${b})`}</p>
-  // </div>
-  // );
+  return (
+    <div
+      className={styles.fill}
+      style={{ background: `rgb(${r}, ${g}, ${b})` }}
+    >
+      <p>{`rgb(${r},${g},${b})`}</p>
+    </div>
+  );
 }
 
 function ScreenColor() {
@@ -27,7 +31,9 @@ function ScreenColor() {
       {
         /* Create Route Inside Switch */
         <Switch>
-          <Route path="/rgb/:r/:g/:b"></Route>
+          <Route path="/rgb/:r/:g/:b">
+            <RGB />
+          </Route>
         </Switch>
       }
     </div>
